@@ -49,22 +49,8 @@
     grid-template-columns: $menu-width-desktop auto;
     grid-template-rows: 100vh;
     grid-gap: $gap;
-  }
 
-  .menu {
-    grid-area: "menu";
-    @include centerFlex();
-    background-color: $bg-color;
-  }
-
-  .content {
-    grid-area: "content";
-    @include centerFlex();
-    background-color: $bg-color;
-  }
-
-  @media (max-width: $breakpoint-small) {
-    #app {
+    @media (max-width: $breakpoint-small) {
       grid-gap: 0;
       grid-template-columns: 100%;
       grid-template-rows: $menu-height-mobile 100vh;
@@ -72,45 +58,22 @@
         "menu" 
         "content";
     }
+  }
 
-    .menu {
-      border-bottom: solid 1px grey;
+  .menu {
+    grid-area: "menu";
+    @include centerFlex();
+    background-color: $bg-color;
+
+    @media (max-width: $breakpoint-small) {
+      border-bottom: solid 1px white;
     }
   }
 
-// flexbox:
-
-// #app {
-//   display: flex;
-//   flex-direction: row;
-//   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-//   gap: $gap; 
-// }
-
-// .menu {
-//   @include centerFlex();
-//   text-align: center;
-//   width: $menu-width;
-//   background-color: $bg-color;
-// }
-
-// .content {
-//   @include centerFlex();
-//   text-align: center;
-//   width: 100%;
-//   height: 100vh;
-//   background-color: $bg-color;
-// }
-
-// @media (max-width: $breakpoint-small) {
-//   #app {
-//     flex-direction: column;
-//   }
-
-//   .menu {
-//     width: 100%;
-//     height: 100px;
-//   }
-// } 
-
+  .content {
+    grid-area: "content";
+    @include centerFlex();
+    background-color: $bg-color;
+  }
+  
 </style>
