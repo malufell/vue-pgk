@@ -9,6 +9,25 @@
         <header class="header">
           Page Title
         </header>
+
+        <article class="card">
+          <div class="card__header card__box">
+            <span>ID</span>
+            <p>Título</p>
+          </div>
+          
+          <div class="card__content card__box">
+            <span>1</span>
+            <p>Lorem ipsum</p>
+            <a class="card__content__link" href="#">Ver</a>
+          </div>
+
+          <div class="card__content card__box">
+            <span>2</span>
+            <p>Lorem ipsum</p>
+            <a class="card__content__link" href="#">Ver</a>
+          </div>
+        </article>
       </main>
 
   </div>
@@ -93,5 +112,43 @@
       margin-top: 20px;
     }
   }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    width: 96%;
+    gap: 3px;
+    margin-top: 140px;
+
+    @media (max-width: $breakpoint-small) {
+      width: 90%;
+      height: 70px;
+    }
+
+    &__box {
+      padding: 10px;
+      background: white;
+      border: 1px solid lightgray;
+      height: 60px;
+      align-items: center;
+    }
+
+    &__header {
+      display: grid;
+      grid-template-columns: 50px auto;
+     }
+
+    &__content {
+      display: grid;
+      grid-template-columns: 50px auto 50px;
+
+      &__link {
+        @media (max-width: $breakpoint-small) {
+          display: none;
+        }
+      }
+    }
+  } 
     
 </style>
