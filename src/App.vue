@@ -1,5 +1,4 @@
 <template>
-
   <div id="app">
 
       <nav class="menu">
@@ -7,13 +6,12 @@
       </nav>
 
       <main class="content">
-        <section>
-          <h1>área de conteúdo</h1>
-        </section>
+        <header class="header">
+          Page Title
+        </header>
       </main>
 
   </div>
-
 </template>
 
 <script>
@@ -28,11 +26,11 @@
   $gap: 20px;
   $breakpoint-small: 768px;
 
-  @mixin centerFlex(){
+  @mixin alignFlex($justify-content){
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: $justify-content;
   }
 
   *{
@@ -62,7 +60,7 @@
 
   .menu {
     grid-area: "menu";
-    @include centerFlex();
+    @include alignFlex(center);
     background-color: $bg-color;
 
     @media (max-width: $breakpoint-small) {
@@ -72,8 +70,28 @@
 
   .content {
     grid-area: "content";
-    @include centerFlex();
+    @include alignFlex(justify-content);
     background-color: $bg-color;
+    position: relative;
   }
-  
+
+  .header {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    background: white;
+    border: 1px solid lightgray;
+    height: 100px;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 20px;
+
+    @media (max-width: $breakpoint-small) {
+      width: 90%;
+      height: 70px;
+      margin-top: 20px;
+    }
+  }
+    
 </style>
