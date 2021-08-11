@@ -1,34 +1,23 @@
 <template>
-
   <div id="app">
-     <menu-template></menu-template>
-     
-      <content-template>
-        <header-template></header-template>
-        <card></card>
-      </content-template>
+
+    <home></home>
+
   </div>
-  
+ 
 </template>
 
 <script>
-  import Menu from "./components/template/Menu"
-  import Header from "./components/template/Header"
-  import Content from "./components/template/Content"
-  import Card from "./components/shared/Card"
+  import Home from "./components/Home"
 
   export default {
     components: {
-      "menu-template": Menu,
-      "header-template": Header,
-      "content-template": Content,
-      "card": Card,
+      "home": Home,
     }
   }
 </script>
 
-<style lang="scss">
-  @import "/sass/_variables.scss";
+<style>
 
   *{
     margin: 0;
@@ -36,22 +25,4 @@
     box-sizing: border-box;
   }
 
-  #app {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: grid;
-    grid-template-areas: 
-      "menu content";
-    grid-template-columns: $menu-width-desktop auto;
-    grid-template-rows: 100vh;
-    grid-gap: $gap;
-
-    @media (max-width: $breakpoint-small) {
-      grid-gap: 0;
-      grid-template-columns: 100%;
-      grid-template-rows: $menu-height-mobile 100vh;
-      grid-template-areas: 
-        "menu" 
-        "content";
-    }
-  }
 </style>
