@@ -1,27 +1,27 @@
 <template>
+
   <div id="app">
-
      <menu-template></menu-template>
-
-      <main class="content">
-
+     
+      <content-template>
         <header-template></header-template>
         <card></card>
-
-      </main>
-
+      </content-template>
   </div>
+  
 </template>
 
 <script>
   import Menu from "./components/template/Menu"
   import Header from "./components/template/Header"
+  import Content from "./components/template/Content"
   import Card from "./components/shared/Card"
 
   export default {
     components: {
       "menu-template": Menu,
       "header-template": Header,
+      "content-template": Content,
       "card": Card,
     }
   }
@@ -54,11 +54,4 @@
         "content";
     }
   }
-
-  .content {
-    grid-area: "content";
-    @include alignFlex(justify-content);
-    background-color: $bg-color;
-  }
-
 </style>
