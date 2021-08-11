@@ -107,13 +107,11 @@ export default {
     grid-area: "content";
     @include alignFlex(justify-content);
     background-color: $bg-color;
-    position: relative;
   }
 
   .header {
     display: flex;
     align-items: center;
-    position: absolute;
     top: 0;
     background: white;
     border: 1px solid lightgray;
@@ -130,16 +128,16 @@ export default {
   }
 
   .card {
-  display: flex;
-  flex-direction: column;
-  width: 96%;
-  gap: 3px;
-  margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    gap: 3px;
+    margin-top: 30px;
 
-  @media (max-width: $breakpoint-small) {
-    width: 90%;
-    height: 70px;
-  }
+    @media (max-width: $breakpoint-small) {
+      width: 90%;
+      height: 70px;
+    }
 
     &__box {
       padding: 10px;
