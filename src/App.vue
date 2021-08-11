@@ -1,12 +1,11 @@
 <template>
   <div id="app">
 
-     <meu-menu></meu-menu>
+     <menu-template></menu-template>
 
       <main class="content">
-        <header class="header">
-          Page Title
-        </header>
+
+        <header-template></header-template>
 
         <article class="card">
           <div class="card__header card__box">
@@ -19,8 +18,8 @@
             <p> {{ post.title }}</p>
             <a class="card__content__link" href="#">Ver</a>
           </div>
-
         </article>
+
       </main>
 
   </div>
@@ -28,11 +27,12 @@
 
 <script>
   import Menu from "./components/template/Menu"
+  import Header from "./components/template/Header"
 
   export default {
-
     components: {
-      "meu-menu": Menu,
+      "menu-template": Menu,
+      "header-template": Header,
     },
 
     data() {
@@ -84,30 +84,10 @@
     }
   }
 
-  
-
   .content {
     grid-area: "content";
     @include alignFlex(justify-content);
     background-color: $bg-color;
-  }
-
-  .header {
-    display: flex;
-    align-items: center;
-    top: 0;
-    background: white;
-    border: 1px solid lightgray;
-    height: 100px;
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 20px;
-
-    @media (max-width: $breakpoint-small) {
-      width: 90%;
-      height: 70px;
-      margin-top: 20px;
-    }
   }
 
   .card {
