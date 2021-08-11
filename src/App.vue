@@ -16,17 +16,12 @@
             <p>Título</p>
           </div>
           
-          <div class="card__content card__box">
-            <span>1</span>
-            <p>Lorem ipsum</p>
+          <div class="card__content card__box" v-for="post of filterTopPosts" :key="post.id">
+            <span>{{ post.id }}</span>
+            <p> {{ post.title }}</p>
             <a class="card__content__link" href="#">Ver</a>
           </div>
 
-          <div class="card__content card__box">
-            <span>2</span>
-            <p>Lorem ipsum</p>
-            <a class="card__content__link" href="#">Ver</a>
-          </div>
         </article>
       </main>
 
@@ -35,6 +30,27 @@
 
 <script>
 
+export default {
+
+  data() {
+    return {
+      posts: [],
+      topPosts: []
+    }
+  },
+                        
+  created() {
+    this.$http.get('https://jsonplaceholder.typicode.com/posts')
+      .then(res => res.json())
+      .then(post => this.posts = post, err => console.log(err));
+  },
+
+  computed: {
+    filterTopPosts() {
+      return this.topPosts = this.posts.filter(post => post.id <= 5)
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -114,17 +130,16 @@
   }
 
   .card {
-    display: flex;
-    flex-direction: column;
-    justify-self: flex-start;
-    width: 96%;
-    gap: 3px;
-    margin-top: 140px;
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+  gap: 3px;
+  margin-top: 140px;
 
-    @media (max-width: $breakpoint-small) {
-      width: 90%;
-      height: 70px;
-    }
+  @media (max-width: $breakpoint-small) {
+    width: 90%;
+    height: 70px;
+  }
 
     &__box {
       padding: 10px;
@@ -137,7 +152,7 @@
     &__header {
       display: grid;
       grid-template-columns: 50px auto;
-     }
+      }
 
     &__content {
       display: grid;
