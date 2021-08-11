@@ -1,0 +1,12 @@
+$bg-color: #E8F0F2;
+$menu-width-desktop: 200px;
+$menu-height-mobile: 100px;
+$gap: 20px;
+$breakpoint-small: 768px;
+
+@mixin alignFlex($justify-content){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: $justify-content;
+  }

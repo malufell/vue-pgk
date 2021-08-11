@@ -1,9 +1,7 @@
 <template>
   <div id="app">
 
-      <nav class="menu">
-        <h1> área do menu </h1>
-      </nav>
+     <meu-menu></meu-menu>
 
       <main class="content">
         <header class="header">
@@ -29,44 +27,37 @@
 </template>
 
 <script>
+  import Menu from "./components/template/Menu"
 
-export default {
+  export default {
 
-  data() {
-    return {
-      posts: [],
-      topPosts: []
-    }
-  },
-                        
-  created() {
-    this.$http.get('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(post => this.posts = post, err => console.log(err));
-  },
+    components: {
+      "meu-menu": Menu,
+    },
 
-  computed: {
-    filterTopPosts() {
-      return this.topPosts = this.posts.filter(post => post.id <= 5)
+    data() {
+      return {
+        posts: [],
+        topPosts: []
+      }
+    },
+                          
+    created() {
+      this.$http.get('https://jsonplaceholder.typicode.com/posts')
+        .then(res => res.json())
+        .then(post => this.posts = post, err => console.log(err));
+    },
+
+    computed: {
+      filterTopPosts() {
+        return this.topPosts = this.posts.filter(post => post.id <= 5)
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">
-
-  $bg-color: #E8F0F2;
-  $menu-width-desktop: 200px;
-  $menu-height-mobile: 100px;
-  $gap: 20px;
-  $breakpoint-small: 768px;
-
-  @mixin alignFlex($justify-content){
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: $justify-content;
-  }
+  @import "/sass/_variables.scss";
 
   *{
     margin: 0;
@@ -93,15 +84,7 @@ export default {
     }
   }
 
-  .menu {
-    grid-area: "menu";
-    @include alignFlex(center);
-    background-color: $bg-color;
-
-    @media (max-width: $breakpoint-small) {
-      border-bottom: solid 1px white;
-    }
-  }
+  
 
   .content {
     grid-area: "content";
