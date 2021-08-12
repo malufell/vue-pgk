@@ -17,7 +17,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
 
   .card-item {
     @include cardBox();

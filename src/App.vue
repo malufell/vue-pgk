@@ -4,8 +4,7 @@
     <posts></posts>
 
   </div>
- 
-</template>
+ </template>
 
 <script>
   import Posts from "./views/Posts"
@@ -17,7 +16,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
 
   *{
     margin: 0;

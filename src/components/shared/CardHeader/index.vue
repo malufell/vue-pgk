@@ -9,10 +9,10 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
 
   .card-header {
     @include cardBox();
     margin-top: 20px;
   }
+  
 </style>

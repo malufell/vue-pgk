@@ -14,7 +14,8 @@ module.exports = {
         test: /\.css$/,
         use: [
           'vue-style-loader',
-          'css-loader'
+          'css-loader',
+          'sass-loader?indentedSyntax',
         ],
       },
       {
@@ -22,7 +23,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          'sass-loader'
+          'sass-loader?indentedSyntax',
         ],
       },
       {
@@ -38,19 +39,8 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader'
-            ],
-            'sass': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader?indentedSyntax'
-            ]
+            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1&data=@import "./src/sass/_variables.scss"',
+            scss: 'vue-style-loader!css-loader!sass-loader?data=@import "./src/sass/_variables.scss";'
           }
           // other vue-loader options go here
         }

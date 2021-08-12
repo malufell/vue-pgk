@@ -49,7 +49,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../sass/_variables.scss";
 
   .posts {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
