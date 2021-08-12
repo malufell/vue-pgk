@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="posts">
     <menu-template></menu-template>
   
     <content-template>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-  import Menu from "../template/Menu"
-  import Header from "../template/Header"
-  import Content from "../template/Content"
-  import Card from "../shared/Card"
+  import Menu from "../../components/template/Menu"
+  import Header from "../../components/template/Header"
+  import Content from "../../components/template/Content"
+  import Card from "../../components/shared/Card"
 
   export default {
     components: {
@@ -28,7 +28,7 @@
 <style lang="scss">
   @import "../../sass/_variables.scss";
 
-  .home {
+  .posts {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: grid;
     grid-template-areas: 

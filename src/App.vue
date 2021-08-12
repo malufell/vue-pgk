@@ -1,18 +1,18 @@
 <template>
   <div id="app">
 
-    <home></home>
+    <posts></posts>
 
   </div>
  
 </template>
 
 <script>
-  import Home from "./components/Home"
+  import Posts from "./views/Posts"
 
   export default {
     components: {
-      "home": Home,
+      "posts": Posts,
     }
   }
 </script>
