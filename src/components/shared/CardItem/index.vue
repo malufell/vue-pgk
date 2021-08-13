@@ -2,8 +2,15 @@
 
   <div class="card-item">
     <span>{{ id }}</span>
-    <p> {{ title }}</p>
-    <a class="card-item__link" href="#">Ver</a>
+
+    <router-link class="card-item__title" :to="{ name: 'edit', params: { id: id } }">
+      <p> {{ title }}</p>
+    </router-link>
+
+    <router-link :to="{ name: 'edit', params: { id: id } }">
+      <span class="card-item__link">Editar</span>
+    </router-link>
+
   </div>
 
 </template>
@@ -24,6 +31,10 @@ export default {
     @media (max-width: $breakpoint-small) {
       width: 90%;
       height: 70px;
+    }
+    &__title {
+      text-decoration: none;
+      color: $font-black-color;
     }
 
     &__link {

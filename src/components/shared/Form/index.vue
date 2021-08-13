@@ -1,14 +1,19 @@
 <template>
 
     <form class="form">
-      <input class="form__title" placeholder="Title"/>
-      <textarea class="form__description" placeholder="Description"></textarea>
+      <input class="form__title" placeholder="Title" v-model="title">
+      <textarea class="form__description" placeholder="Description" v-model="description"></textarea>
       <button class="form__button">Salvar</button>
     </form>
 
 </template>
 
 <script>
+
+export default {
+  props: ['title', 'description'],
+}
+
 </script>
 
 <style lang="scss">
@@ -26,11 +31,11 @@
 
     @media (max-width: $breakpoint-small) {
       width: 90%;
+      gap: 20px;
     }
   
     &__title, &__description {
       width: 40%;
-      height: auto;
       padding: 5px;
       font-family: $font-family;
       font-size: 1.1rem;
@@ -42,13 +47,17 @@
       }
     }
 
+    &__description {
+      height: 120px;
+    }
+
     &__button {
       padding: 10px;
       width: 100px;
-      background-color: #7C4DFF;
+      background-color: $bg-purple-color;
       border-radius: 4px;
       border: none;
-      color: white;
+      color: $font-white-color;
       font-size: 1.1rem;
       cursor: pointer;
 
