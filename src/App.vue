@@ -1,19 +1,12 @@
 <template>
   <div id="app">
 
-    <posts></posts>
+    <router-view></router-view>
 
   </div>
  </template>
 
 <script>
-  import Posts from "./views/Posts"
-
-  export default {
-    components: {
-      "posts": Posts,
-    }
-  }
 </script>
 
 <style lang="scss">
