@@ -13,6 +13,10 @@
   .card-header {
     @include cardBox();
     margin-top: 20px;
+
+    @media (max-width: $breakpoint-small) {
+      width: 90%;
+    }
   }
   
 </style>

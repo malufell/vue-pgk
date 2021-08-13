@@ -30,8 +30,11 @@ export default {
 
     @media (max-width: $breakpoint-small) {
       width: 90%;
-      height: 70px;
+      min-height: 60px;
+      height: auto;
+      padding: 10px;
     }
+
     &__title {
       text-decoration: none;
       color: $font-black-color;
