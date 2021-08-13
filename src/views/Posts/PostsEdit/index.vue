@@ -1,13 +1,23 @@
 <template>
-  <h1>teste</h1>
+
+    <page-template>
+      <form-posts></form-posts>
+    </page-template>
+    
 </template>
 
 <script>
-export default {
+  import Template from "../../../components/template/ index.vue"
+  import Form from "../../../components/shared/Form"
 
-}
+  export default {
+    components: {
+      "page-template": Template,
+      "form-posts": Form, 
+    },
+  }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
