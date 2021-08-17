@@ -1,13 +1,13 @@
 <template>
 
-    <page-template>
+    <page-template :titulo="titulo">
       <form-posts :title="post.title" :description="post.body"></form-posts>
     </page-template>
     
 </template>
 
 <script>
-  import Template from "../../../components/template/ index.vue"
+  import Template from "../../../components/Template/index.vue"
   import Form from "../../../components/shared/Form"
 
   export default {
@@ -20,6 +20,7 @@
       return {
         post: {},
         id: this.$route.params.id,
+        titulo: "Edição de Post"
       }
     },
 

@@ -1,12 +1,16 @@
 <template>
 
   <header class="header">
-    Page Title
+    {{ titulo }}
   </header>
 
 </template>
 
 <script>
+
+export default {
+  props: ['titulo']
+}
 </script>
 
 <style lang="scss">

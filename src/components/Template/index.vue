@@ -3,22 +3,25 @@
     <menu-template></menu-template>
   
     <content-template>
-      <header-template></header-template>
+      <header-template :titulo="titulo"></header-template>
       <slot></slot>
     </content-template>
   </div>
 </template>
 
 <script>
-  import Menu from "../../components/template/Menu"
-  import Header from "../../components/template/Header"
-  import Content from "../../components/template/Content"
+  import Menu from "../../components/Template/Menu"
+  import Header from "../../components/Template/Header"
+  import Content from "../../components/Template/Content"
 
   export default {
     components: {
       "menu-template": Menu,
       "header-template": Header,
       "content-template": Content,
+    },
+    props: {
+      titulo: ""
     },
   }
 </script>
