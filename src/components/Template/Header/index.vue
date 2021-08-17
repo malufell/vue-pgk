@@ -9,7 +9,16 @@
 <script>
 
 export default {
-  props: ['titulo']
+
+  data() {
+    return {
+      titulo: "",
+    }
+  },
+
+  created() {
+    this.titulo = this.$router.history.current.meta.title
+  }
 }
 </script>
 

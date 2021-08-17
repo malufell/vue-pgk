@@ -3,7 +3,7 @@
     <menu-template></menu-template>
   
     <content-template>
-      <header-template :titulo="titulo"></header-template>
+      <header-template></header-template>
       <slot></slot>
     </content-template>
   </div>
@@ -19,9 +19,6 @@
       "menu-template": Menu,
       "header-template": Header,
       "content-template": Content,
-    },
-    props: {
-      titulo: ""
     },
   }
 </script>

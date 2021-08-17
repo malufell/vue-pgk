@@ -20,7 +20,6 @@
       return {
         post: {},
         id: this.$route.params.id,
-        titulo: "Edição de Post"
       }
     },
 
