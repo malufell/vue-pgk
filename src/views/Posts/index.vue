@@ -2,7 +2,7 @@
 
   <page-template :titulo="titulo">
     <card-header></card-header>
-    <card-item v-for="post of filterTopPosts" :key="post.id" :id="post.id" :title="post.title"></card-item>
+    <card-list :posts="filterTopPosts"></card-list>
   </page-template>
 
 </template>
@@ -10,20 +10,19 @@
 <script>
   import Template from "../../components/Template/index.vue"
   import CardHeader from "../../components/shared/CardHeader"
-  import CardItem from "../../components/shared/CardItem"
+  import CardList from "../../components/shared/CardList"
 
   export default {
     components: {
       "page-template": Template,
       "card-header": CardHeader,
-      "card-item": CardItem,
+      "card-list": CardList,
     },
 
     data() {
       return {
         posts: [],
-        topPosts: [],
-        titulo: "Lista de Posts"
+        titulo: "Lista de Posts",
       }
     },
                           
@@ -35,7 +34,7 @@
 
     computed: {
       filterTopPosts() {
-        return this.topPosts = this.posts.filter(post => post.id <= 5)
+        return this.posts.filter(post => post.id <= 5)
       }
     }
   }
