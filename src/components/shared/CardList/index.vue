@@ -16,7 +16,7 @@ export default {
     posts: { 
       required: true,
       type: Array,
-      default: 'posts',
+      default: [],
     }
   }
 }
