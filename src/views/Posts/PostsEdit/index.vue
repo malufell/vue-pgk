@@ -9,6 +9,7 @@
 <script>
   import Template from "../../../components/Template/index.vue"
   import Form from "../../../components/shared/Form"
+  import ApiService from "../../../services/api"
 
   export default {
     components: {
@@ -24,11 +25,12 @@
     },
 
     created() {
-      this.$http.get(`https://jsonplaceholder.typicode.com/posts/${this.id}`)
-        .then(res => res.json())
-        .then(post => this.post = post, err => console.log(err))
-    },
+      this.service = new ApiService()
+        .busca(this.id)
+        .then(post => this.post = post.data, err => console.log(err))
+    }
   }
+
 </script>
 
 <style lang="scss">

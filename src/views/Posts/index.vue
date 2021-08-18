@@ -1,6 +1,6 @@
 <template>
 
-  <page-template :title="title">
+  <page-template>
     <card-header></card-header>
     <card-list :posts="filterTopPosts"></card-list>
   </page-template>
@@ -11,6 +11,7 @@
   import Template from "../../components/Template/index.vue"
   import CardHeader from "../../components/shared/CardHeader"
   import CardList from "../../components/shared/CardList"
+  import ApiService from "../../services/api"
 
   export default {
     components: {
@@ -22,21 +23,19 @@
     data() {
       return {
         posts: [],
-        title: "Lista de Posts",
       }
     },
                           
     created() {
-      this.$http.get('https://jsonplaceholder.typicode.com/posts')
-        .then(res => res.json())
-        .then(post => this.posts = post, err => console.log(err));
+      this.service = new ApiService()
+        .lista()
+        .then(posts => this.posts = posts.data, err => console.log(err))
     },
 
-    computed: {
+    computed: {      
       filterTopPosts() {
-        return this.posts.filter(post => post.id <= 5)
-      }
-    }
+        return this.posts.filter(post => post.id <= 2)
+      }}
   }
 </script>
 
