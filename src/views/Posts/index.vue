@@ -1,6 +1,6 @@
 <template>
 
-  <page-template :titulo="titulo">
+  <page-template :title="title">
     <card-header></card-header>
     <card-list :posts="filterTopPosts"></card-list>
   </page-template>
@@ -22,7 +22,7 @@
     data() {
       return {
         posts: [],
-        titulo: "Lista de Posts",
+        title: "Lista de Posts",
       }
     },
                           

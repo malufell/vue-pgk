@@ -1,6 +1,6 @@
 <template>
 
-    <page-template :titulo="titulo">
+    <page-template :title="title">
       <form-posts :title="post.title" :description="post.body"></form-posts>
     </page-template>
     

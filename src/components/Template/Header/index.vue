@@ -1,7 +1,7 @@
 <template>
 
   <header class="header">
-    {{ titulo }}
+    {{ title }}
   </header>
 
 </template>
@@ -12,12 +12,12 @@ export default {
 
   data() {
     return {
-      titulo: "",
+      title: "",
     }
   },
 
   created() {
-    this.titulo = this.$router.history.current.meta.title
+    this.title = this.$router.history.current.meta.title
   }
 }
 </script>
