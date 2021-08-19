@@ -1,6 +1,10 @@
 <template>
 
   <page-template>
+    <div class="wrapper-button">
+      <button-element :label="buttonAddStart"></button-element>
+      <button-element :label="buttonAddEnd"></button-element>
+    </div>
     <card-header></card-header>
     <card-list :posts="filterTopPosts"></card-list>
   </page-template>
@@ -9,6 +13,7 @@
 
 <script>
   import Template from "../../components/Template/index.vue"
+  import Button from "../../components/shared/Button"
   import CardHeader from "../../components/shared/CardHeader"
   import CardList from "../../components/shared/CardList"
   import ApiService from "../../services/api"
@@ -18,11 +23,14 @@
       "page-template": Template,
       "card-header": CardHeader,
       "card-list": CardList,
+      "button-element": Button
     },
 
     data() {
       return {
         posts: [],
+        buttonAddStart: "Adicionar item no início",
+        buttonAddEnd: "Adicionar item no final"
       }
     },
                           
@@ -40,5 +48,15 @@
 </script>
 
 <style lang="scss">
+  .wrapper-button {
+    display: flex;
+    width: 96%;
+    margin-top: 15px;
+    justify-content: start;
 
+    @media (max-width: $breakpoint-small) {
+      flex-direction: column;
+      width: 88%;
+    }
+  }
 </style>

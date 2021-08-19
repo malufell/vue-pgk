@@ -3,15 +3,26 @@
     <form class="form">
       <input class="form__title" placeholder="Title" v-model="title">
       <textarea class="form__description" placeholder="Description" v-model="description"></textarea>
-      <button class="form__button">Salvar</button>
+      <button-element :label="buttonSave"></button-element>
     </form>
 
 </template>
 
 <script>
+import Button from "../Button"
 
 export default {
+  components: {
+   "button-element": Button
+  },
+
   props: ['title', 'description'],
+
+  data() {
+    return {
+      buttonSave: "Salvar"
+    }
+  }
 }
 
 </script>
@@ -49,21 +60,6 @@ export default {
 
     &__description {
       height: 120px;
-    }
-
-    &__button {
-      padding: 10px;
-      width: 100px;
-      background-color: $bg-purple-color;
-      border-radius: 4px;
-      border: none;
-      color: $font-white-color;
-      font-size: 1.1rem;
-      cursor: pointer;
-
-      @media (max-width: $breakpoint-small) {
-        width: 100%
-      }
     }
   }
 
