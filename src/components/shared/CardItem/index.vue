@@ -1,16 +1,9 @@
 <template>
-
-  <div class="card-item">
+  <div class="card-item" >
     <span>{{ id }}</span>
-
-    <router-link class="card-item__title" :to="{ name: 'edit', params: { id: id } }">
-      <p> {{ title }}</p>
-    </router-link>
-
-    <router-link :to="{ name: 'edit', params: { id: id } }">
-      <span class="card-item__link">Editar</span>
-    </router-link>
-
+    <p class="card-item__title" @click="goToEdit()"> {{ title }}</p>
+    <a href="" class="card-item__link">Remover</a>
+    <a href="" class="card-item__link" @click="goToEdit()">Editar</a>
   </div>
 
 </template>
@@ -19,6 +12,15 @@
 
 export default {
   props: ['id', 'title'],
+
+  methods: { 
+
+    goToEdit() {
+
+    this.$router.push(`/postsEdit/${this.id}`); 
+
+  }},
+
 }
 
 </script>
@@ -27,6 +29,7 @@ export default {
 
   .card-item {
     @include cardBox();
+
 
     @media (max-width: $breakpoint-small) {
       width: 90%;
@@ -38,6 +41,7 @@ export default {
     &__title {
       text-decoration: none;
       color: $font-black-color;
+      cursor: pointer;
     }
 
     &__link {
