@@ -1,6 +1,6 @@
 <template>
   <div class="card-item" >
-    <span>{{ id }}</span>
+    <span>{{ newId }}</span>
     <p class="card-item__title" @click="goToEdit()"> {{ title }}</p>
     <a href="" class="card-item__link">Remover</a>
     <a href="" class="card-item__link" @click="goToEdit()">Editar</a>
@@ -11,7 +11,7 @@
 <script>
 
 export default {
-  props: ['id', 'title'],
+  props: ['id', 'title', 'newId'],
 
   methods: { 
 
