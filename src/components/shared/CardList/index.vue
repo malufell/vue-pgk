@@ -1,6 +1,6 @@
 <template>
   <div class="card-list">
-    <card-item v-for="post in posts" :key="post.id" :id="post.id" :title="post.title"></card-item>
+    <card-item v-for="post in posts" :key="post.id" :id="post.newId" :title="post.title"></card-item>
   </div>
 </template>
 

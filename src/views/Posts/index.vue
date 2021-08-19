@@ -2,11 +2,11 @@
 
   <page-template>
     <div class="wrapper-button">
-      <button-element :label="buttonAddStart"></button-element>
-      <button-element :label="buttonAddEnd"></button-element>
+      <button-element :label="buttonAddStart" @addStart="addItemStart()"></button-element>
+      <button-element :label="buttonAddEnd" @addEnd="addItemEnd()"></button-element>
     </div>
     <card-header></card-header>
-    <card-list :posts="filterTopPosts"></card-list>
+    <card-list :posts="changeId"></card-list>
   </page-template>
 
 </template>
@@ -37,13 +37,32 @@
     created() {
       this.service = new ApiService()
         .lista()
-        .then(posts => this.posts = posts.data, err => console.log(err))
+        .then(posts => this.posts = posts.data.filter(post => post.id <= 3 && post.id > 1), err => console.log(err))
     },
 
     computed: {      
-      filterTopPosts() {
-        return this.posts.filter(post => post.id <= 2)
-      }}
+      changeId() {
+        let id = 1;
+        this.posts.forEach(post => { post.newId = id, id++ });
+        return this.posts;
+      },
+    },
+
+    methods: {
+      addItemStart() {
+        const newPost = 1;
+        this.service = new ApiService()
+        .busca(newPost)
+        .then(newPost => this.posts.unshift(newPost.data), err => console.log(err))
+      },
+
+      addItemEnd() {
+        const newPost = 1;
+        this.service = new ApiService()
+        .busca(newPost)
+        .then(newPost => this.posts.push(newPost.data), err => console.log(err))
+      }
+    }
   }
 </script>
 

@@ -1,11 +1,21 @@
 <template>
-  <button class="button">{{ label }}</button>
+  <button class="button" @click="newItem" >{{ label }}</button>
 </template>
 
 <script>
 
 export default {
   props: ['label'],
+
+  methods: {
+    newItem() {
+      if(this.label == "Adicionar item no início") {
+        return this.$emit("addStart");
+      } else {
+        return this.$emit("addEnd");
+      };
+    }
+  }
 }
 </script>
 
