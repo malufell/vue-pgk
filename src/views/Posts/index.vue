@@ -67,9 +67,10 @@
 </script>
 
 <style lang="scss">
+
   .wrapper-button {
     display: flex;
-    width: 96%;
+    width: 94%;
     margin-top: 15px;
     justify-content: start;
 
@@ -78,4 +79,5 @@
       width: 88%;
     }
   }
+  
 </style>

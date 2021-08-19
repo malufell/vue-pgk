@@ -1,7 +1,9 @@
 <template>
-  <div class="card-header">
-    <span>ID</span>
-    <p>Título</p>
+  <div class="wrapper">
+    <div class="card-header">
+      <span>ID</span>
+      <p>Título</p>
+    </div>
   </div>
 </template>
 
@@ -10,6 +12,11 @@
 
 <style lang="scss">
 
+  .wrapper {
+    display: flex;
+    justify-content: start;
+    width: 94%;
+  }
   .card-header {
     @include cardBox();
     margin-top: 20px;

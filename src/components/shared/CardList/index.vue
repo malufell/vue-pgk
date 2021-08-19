@@ -28,7 +28,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    justify-content: start;
+    width: 94%;
+    overflow-y: auto;
+    margin-bottom: 15px;
 }
 
 </style>
