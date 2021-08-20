@@ -26,7 +26,7 @@
 
     created() {
       this.service = new ApiService()
-        .busca(this.id)
+        .getPostId(this.id)
         .then(post => this.post = post.data, err => console.log(err))
     }
   }

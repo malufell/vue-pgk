@@ -1,6 +1,6 @@
 <template>
   <div class="card-list">
-    <card-item v-for="post in posts" :key="post.newId" :id="post.id" :newId="post.newId" :title="post.title"></card-item>
+    <card-item v-for="post in posts" :key="post.newId" :id="post.id" :newId="post.newId" :title="post.title" v-on.prevent="$listeners" ></card-item>
   </div>
 </template>
 
@@ -17,8 +17,8 @@ export default {
       required: true,
       type: Array,
       default: [],
-    }
-  }
+    },
+  },
 }
 </script>
 
