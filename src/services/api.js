@@ -5,11 +5,11 @@ export default class ApiService {
       this.resource = 'https://jsonplaceholder.typicode.com/posts';
     };
   
-   lista() {
+   getPosts() {
     return axios.get(this.resource);
   };
 
-   busca(id) {
+   getPostId(id) {
     return axios.get(`${this.resource}/${id}`)
-   } 
+   };
 };

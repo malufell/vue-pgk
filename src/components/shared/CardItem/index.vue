@@ -2,7 +2,7 @@
   <div class="card-item" >
     <span>{{ newId }}</span>
     <p class="card-item__title" @click="goToEdit()"> {{ title }}</p>
-    <a href="" class="card-item__link">Remover</a>
+    <a class="card-item__link" @click="btnRemoveActive(newId)">Remover</a>
     <a href="" class="card-item__link" @click="goToEdit()">Editar</a>
   </div>
 
@@ -16,11 +16,15 @@ export default {
   methods: { 
 
     goToEdit() {
+      this.$router.push(`/postsEdit/${this.id}`); 
+    },
 
-    this.$router.push(`/postsEdit/${this.id}`); 
+    btnRemoveActive(newId) {
+      return this.$emit("btnRemoveActive", newId)
+    }
+  },
 
-  }},
-
+ 
 }
 
 </script>
@@ -29,7 +33,6 @@ export default {
 
   .card-item {
     @include cardBox();
-
 
     @media (max-width: $breakpoint-small) {
       width: 90%;
@@ -45,6 +48,10 @@ export default {
     }
 
     &__link {
+      cursor: pointer;
+      color: #0000EE;
+      text-decoration: underline;
+      
       @media (max-width: $breakpoint-small) {
         display: none;
       }

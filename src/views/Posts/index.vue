@@ -6,7 +6,7 @@
       <button-element :label="buttonAddEnd" @addEnd="addItemEnd()"></button-element>
     </div>
     <card-header></card-header>
-    <card-list :posts="changeId"></card-list>
+    <card-list :posts="changeId" @btnRemoveActive="removePost($event)"></card-list>
   </page-template>
 
 </template>
@@ -36,7 +36,7 @@
                           
     created() {
       this.service = new ApiService()
-        .lista()
+        .getPosts()
         .then(posts => this.posts = posts.data.filter(post => post.id <= 3 && post.id > 1), err => console.log(err))
     },
 
@@ -52,16 +52,21 @@
       addItemStart() {
         const newPost = 1;
         this.service = new ApiService()
-        .busca(newPost)
+        .getPostId(newPost)
         .then(newPost => this.posts.unshift(newPost.data), err => console.log(err))
       },
 
       addItemEnd() {
         const newPost = 1;
         this.service = new ApiService()
-        .busca(newPost)
+        .getPostId(newPost)
         .then(newPost => this.posts.push(newPost.data), err => console.log(err))
-      }
+      },
+
+      removePost(event) {
+        let index = event - 1; //posição
+        this.posts.splice(index, 1);
+      },
     }
   }
 </script>
