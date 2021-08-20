@@ -8,8 +8,9 @@ export default {
   props: ['label'],
 
   methods: {
+
     newItem() {
-      if(this.label == "Adicionar item no início") {
+      if(this.label.includes("início")) {
         return this.$emit("addStart");
       } else {
         return this.$emit("addEnd");
