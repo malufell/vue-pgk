@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class ApiService {
-    constructor(id) {
+    constructor() {
       this.resource = 'https://jsonplaceholder.typicode.com/posts';
     };
   
