@@ -36,7 +36,6 @@ export default {
 
     @media (max-width: $breakpoint-small) {
       width: 90%;
-      min-height: 60px;
       height: auto;
       padding: 10px;
     }
@@ -51,10 +50,6 @@ export default {
       cursor: pointer;
       color: #0000EE;
       text-decoration: underline;
-      
-      @media (max-width: $breakpoint-small) {
-        display: none;
-      }
     }
   } 
 </style>

@@ -16,13 +16,17 @@
     display: flex;
     justify-content: start;
     width: 94%;
+
+    @media (max-width: $breakpoint-small) {
+      width: 85%;
+    }
   }
   .card-header {
     @include cardBox();
     margin-top: 20px;
 
     @media (max-width: $breakpoint-small) {
-      width: 90%;
+      width: 100%;
     }
   }
   
