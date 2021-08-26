@@ -1,5 +1,5 @@
 <template>
-  <button class="button" @click="newItem" >{{ label }}</button>
+  <button class="button" @click="handleClick" >{{ label }}</button>
 </template>
 
 <script>
@@ -9,12 +9,8 @@ export default {
 
   methods: {
 
-    newItem() {
-      if(this.label.includes("início")) {
-        return this.$emit("addStart");
-      } else {
-        return this.$emit("addEnd");
-      };
+    handleClick() {
+      this.$emit("handleClick");
     }
   }
 }

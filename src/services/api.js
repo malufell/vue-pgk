@@ -1,15 +1,9 @@
 import axios from "axios";
 
-export default class ApiService {
-    constructor() {
-      this.resource = 'https://jsonplaceholder.typicode.com/posts';
-    };
-  
-   getPosts() {
-    return axios.get(this.resource);
-  };
+export default function api() {
+  const instance = axios.create({
+    baseURL: "https://jsonplaceholder.typicode.com"
+  });
 
-   getPostId(id) {
-    return axios.get(`${this.resource}/${id}`)
-   };
+  return instance;
 };

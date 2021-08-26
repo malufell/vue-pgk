@@ -2,10 +2,9 @@
   <div class="card-item" >
     <span>{{ newId }}</span>
     <p class="card-item__title" @click="goToEdit()"> {{ title }}</p>
-    <a class="card-item__link" @click="btnRemoveActive(newId)">Remover</a>
+    <a class="card-item__link" @click="handleRemove(newId)">Remover</a>
     <a href="" class="card-item__link" @click="goToEdit()">Editar</a>
   </div>
-
 </template>
 
 <script>
@@ -19,7 +18,7 @@ export default {
       this.$router.push(`/postsEdit/${this.id}`); 
     },
 
-    btnRemoveActive(newId) {
+    handleRemove(newId) {
       return this.$emit("btnRemoveActive", newId)
     }
   },

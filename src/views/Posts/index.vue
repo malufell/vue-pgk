@@ -2,8 +2,8 @@
 
   <page-template>
     <div class="wrapper-button">
-      <button-element :label="buttonAddStart" @addStart="addItemStart()"></button-element>
-      <button-element :label="buttonAddEnd" @addEnd="addItemEnd()"></button-element>
+      <button-element :label="buttonAddStart" @handleClick="addItemStart()"></button-element>
+      <button-element :label="buttonAddEnd" @handleClick="addItemEnd()"></button-element>
     </div>
     <card-header></card-header>
     <card-list :posts="changeId" @btnRemoveActive="removePost($event)"></card-list>
@@ -28,6 +28,7 @@
 
     data() {
       return {
+        newPost: 1,
         posts: [],
         buttonAddStart: "Adicionar item no início",
         buttonAddEnd: "Adicionar item no final"
@@ -35,13 +36,14 @@
     },
                           
     created() {
-      this.service = new ApiService()
-        .getPosts()
+      ApiService()
+        .get('/posts')
         .then(posts => this.posts = posts.data.filter(post => post.id <= 3 && post.id > 1), err => console.log(err))
     },
 
     computed: {      
       changeId() {
+
         let id = 1;
         this.posts.forEach(post => { post.newId = id, id++ });
         return this.posts;
@@ -50,17 +52,17 @@
 
     methods: {
       addItemStart() {
-        const newPost = 1;
-        this.service = new ApiService()
-        .getPostId(newPost)
-        .then(newPost => this.posts.unshift(newPost.data), err => console.log(err))
+
+        ApiService()
+          .get(`/posts/${this.newPost}`)
+          .then(newPost => this.posts.unshift(newPost.data), err => console.log(err))
       },
 
       addItemEnd() {
-        const newPost = 1;
-        this.service = new ApiService()
-        .getPostId(newPost)
-        .then(newPost => this.posts.push(newPost.data), err => console.log(err))
+
+        ApiService()
+          .get(`/posts/${this.newPost}`)
+          .then(newPost => this.posts.push(newPost.data), err => console.log(err))
       },
 
       removePost(event) {
