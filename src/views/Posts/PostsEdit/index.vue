@@ -25,8 +25,9 @@
     },
 
     created() {
-      this.service = new ApiService()
-        .getPostId(this.id)
+
+      ApiService()
+        .get(`/posts/${this.id}`)
         .then(post => this.post = post.data, err => console.log(err))
     }
   }
